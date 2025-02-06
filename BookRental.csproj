@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B7BB7739-1C6A-45DF-90B1-8DE625773AA0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BookRental</RootNamespace>
+    <AssemblyName>BookRental</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=9.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.9.1.0\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Admin.cs" />
+    <Compile Include="Class\Book.cs" />
+    <Compile Include="Class\ConnectDatabase.cs" />
+    <Compile Include="Class\ControlFunction.cs" />
+    <Compile Include="Class\Librarian.cs" />
+    <Compile Include="Class\Student.cs" />
+    <Compile Include="Class\StudentAffair.cs" />
+    <Compile Include="Class\User.cs" />
+    <Compile Include="Librarian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian.Designer.cs">
+      <DependentUpon>Librarian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SA.Designer.cs">
+      <DependentUpon>SA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAffairForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentAffairForm.Designer.cs">
+      <DependentUpon>StudentAffairForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Librarian.resx">
+      <DependentUpon>Librarian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SA.resx">
+      <DependentUpon>SA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student.resx">
+      <DependentUpon>Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentAffairForm.resx">
+      <DependentUpon>StudentAffairForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Media %285%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoPhoto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoutBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rental.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SAProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StudentProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overDate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overDate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addBook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteBook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\records.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Librarian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\studentFirePoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SAProfile1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 71.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SAProfile2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteBook1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createAcc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accounts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updateAcc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Akamegakill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AnyasGhost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coraline%28Graphic Novel%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coraline%28GraphicNovel%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dandadan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Daytripper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FlowersInTheSecretPlace.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ghost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ghost1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HanatoKuchizuke.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ItTakesMoreThanaPrettyFacetoFallinLove.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JujutsuKaisen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Koigakubo-kunStoleMyFirstTime.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightningandRomance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MyHappyMarriage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nimona.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OnePiece.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PoisonousPhoenix.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RascalDoesNotDreamofBunnyGirlSenpai.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RentAGirlfriend.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Smile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TalesofDemonsandGods.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TheLittlePrince%28GraphicNovel%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThePrinceandtheDressmaker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TheTeaDragonSociety.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThroughtheWoods.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WangpaiXiaocao.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AtomicHabits.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CantHurtMe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DaringGreatly.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeepWork.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MansSearchforMeaning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartWithWhy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\The7HabitsofHighlyEffectivePeople.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TheFourAgreements.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThePowerofNow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThinkandGrowRich.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hearted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heartLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LibrarianOnline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LibrarianOffline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StudentOffline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StudentOnline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StudentAffairOnline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StudentAffairOffline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminOffline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminOnline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LibrarianProf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StudentAffairProf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StudentProf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminProf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\record.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboardIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\books.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>taskkill /f /fi "pid gt 0" /im "BookRental.exe"</PreBuildEvent>
+  </PropertyGroup>
+</Project>
