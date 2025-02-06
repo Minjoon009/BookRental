@@ -46,6 +46,7 @@ namespace BookRental
         private void btnReturn_Click(object sender, EventArgs e)
         {
             tabLibrarian.SelectedIndex = 2;
+
         }
 
         private void btnOverDate_Click(object sender, EventArgs e)

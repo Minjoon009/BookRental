@@ -12,7 +12,7 @@ namespace BookRental.Class
     {
         ConnectDatabase db = new ConnectDatabase();
 
-        public void viewBooks(DataGridView d1,string type)
+        public void viewBooks(DataGridView d1, string type)
         {
             db.cnOpen();
             string query;
@@ -24,7 +24,7 @@ namespace BookRental.Class
             {
                 query = $"SELECT Title, Author, Genre.name AS Genre, Year_Published, ISBN, Qty FROM books JOIN genre ON genre.gid = books.genreId WHERE title like '%{type}%' or author like '%{type}%'";
             }
-            d1.DataSource=db.showDataGridView(query);
+            d1.DataSource = db.showDataGridView(query);
             db.cnClose();
         }
         public string booksCount()
@@ -41,7 +41,7 @@ namespace BookRental.Class
 
             return count;
         }
-        public void borrowBook(string e,string t, string isbn,string b, string r)
+        public void borrowBook(string e, string t, string isbn, string b, string r)
         {
             db.cnOpen();
             string query = $"INSERT INTO rental (uid, bookId, borrowDate, returnDate, isSend, isPhoned, isReturned) VALUES ((SELECT userId FROM user WHERE email = '{e}' LIMIT 1), (SELECT bookId FROM books WHERE isbn = '{isbn}' LIMIT 1), '{b}', '{r}', '0', '0', '0')";
@@ -56,7 +56,7 @@ namespace BookRental.Class
             {
                 query = $"update books set qty=qty-1 where isbn='{isbn}'";
             }
-            else if(type == "return")
+            else if (type == "return")
             {
                 query = $"update books set qty=qty+1 where isbn='{isbn}'";
             }
@@ -66,10 +66,18 @@ namespace BookRental.Class
         public void deleteBook(string isbn)
         {
             db.cnOpen();
-            string query =$"delete from books where isbn='{isbn}'";
+            string query = $"delete from books where isbn='{isbn}'";
             db.executeQuery(query);
             db.cnClose();
         }
-        
+
+        public void viewReturn(DataGridView d1)
+        {
+            db.cnOpen();
+            string query = $"select * from rental";
+            d1.DataSource = db.showDataGridView(query);
+            db.cnClose();
+        }
+
     }
 }
